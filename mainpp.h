@@ -12,6 +12,11 @@
  extern "C" {
 #endif
 
+extern float v;
+extern float u;
+extern float Setpoint_value;
+extern float Kp, Ki, Kd;
+
 void setup(void);
 void loop(void);
 
