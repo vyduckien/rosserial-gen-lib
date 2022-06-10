@@ -12,26 +12,44 @@ namespace pid_plot
   class Num : public ros::Msg
   {
     public:
-      typedef float _output_rpm_type;
-      _output_rpm_type output_rpm;
-      typedef float _output_controller_type;
-      _output_controller_type output_controller;
-      typedef float _input_setpoint_type;
-      _input_setpoint_type input_setpoint;
-      typedef float _input_Kp_type;
-      _input_Kp_type input_Kp;
-      typedef float _input_Ki_type;
-      _input_Ki_type input_Ki;
-      typedef float _input_Kd_type;
-      _input_Kd_type input_Kd;
+      typedef float _output_rpm_m1_type;
+      _output_rpm_m1_type output_rpm_m1;
+      typedef float _output_controller_m1_type;
+      _output_controller_m1_type output_controller_m1;
+      typedef float _input_setpoint_m1_type;
+      _input_setpoint_m1_type input_setpoint_m1;
+      typedef float _input_Kp_m1_type;
+      _input_Kp_m1_type input_Kp_m1;
+      typedef float _input_Ki_m1_type;
+      _input_Ki_m1_type input_Ki_m1;
+      typedef float _input_Kd_m1_type;
+      _input_Kd_m1_type input_Kd_m1;
+      typedef float _output_rpm_m2_type;
+      _output_rpm_m2_type output_rpm_m2;
+      typedef float _output_controller_m2_type;
+      _output_controller_m2_type output_controller_m2;
+      typedef float _input_setpoint_m2_type;
+      _input_setpoint_m2_type input_setpoint_m2;
+      typedef float _input_Kp_m2_type;
+      _input_Kp_m2_type input_Kp_m2;
+      typedef float _input_Ki_m2_type;
+      _input_Ki_m2_type input_Ki_m2;
+      typedef float _input_Kd_m2_type;
+      _input_Kd_m2_type input_Kd_m2;
 
     Num():
-      output_rpm(0),
-      output_controller(0),
-      input_setpoint(0),
-      input_Kp(0),
-      input_Ki(0),
-      input_Kd(0)
+      output_rpm_m1(0),
+      output_controller_m1(0),
+      input_setpoint_m1(0),
+      input_Kp_m1(0),
+      input_Ki_m1(0),
+      input_Kd_m1(0),
+      output_rpm_m2(0),
+      output_controller_m2(0),
+      input_setpoint_m2(0),
+      input_Kp_m2(0),
+      input_Ki_m2(0),
+      input_Kd_m2(0)
     {
     }
 
@@ -41,63 +59,123 @@ namespace pid_plot
       union {
         float real;
         uint32_t base;
-      } u_output_rpm;
-      u_output_rpm.real = this->output_rpm;
-      *(outbuffer + offset + 0) = (u_output_rpm.base >> (8 * 0)) & 0xFF;
-      *(outbuffer + offset + 1) = (u_output_rpm.base >> (8 * 1)) & 0xFF;
-      *(outbuffer + offset + 2) = (u_output_rpm.base >> (8 * 2)) & 0xFF;
-      *(outbuffer + offset + 3) = (u_output_rpm.base >> (8 * 3)) & 0xFF;
-      offset += sizeof(this->output_rpm);
+      } u_output_rpm_m1;
+      u_output_rpm_m1.real = this->output_rpm_m1;
+      *(outbuffer + offset + 0) = (u_output_rpm_m1.base >> (8 * 0)) & 0xFF;
+      *(outbuffer + offset + 1) = (u_output_rpm_m1.base >> (8 * 1)) & 0xFF;
+      *(outbuffer + offset + 2) = (u_output_rpm_m1.base >> (8 * 2)) & 0xFF;
+      *(outbuffer + offset + 3) = (u_output_rpm_m1.base >> (8 * 3)) & 0xFF;
+      offset += sizeof(this->output_rpm_m1);
       union {
         float real;
         uint32_t base;
-      } u_output_controller;
-      u_output_controller.real = this->output_controller;
-      *(outbuffer + offset + 0) = (u_output_controller.base >> (8 * 0)) & 0xFF;
-      *(outbuffer + offset + 1) = (u_output_controller.base >> (8 * 1)) & 0xFF;
-      *(outbuffer + offset + 2) = (u_output_controller.base >> (8 * 2)) & 0xFF;
-      *(outbuffer + offset + 3) = (u_output_controller.base >> (8 * 3)) & 0xFF;
-      offset += sizeof(this->output_controller);
+      } u_output_controller_m1;
+      u_output_controller_m1.real = this->output_controller_m1;
+      *(outbuffer + offset + 0) = (u_output_controller_m1.base >> (8 * 0)) & 0xFF;
+      *(outbuffer + offset + 1) = (u_output_controller_m1.base >> (8 * 1)) & 0xFF;
+      *(outbuffer + offset + 2) = (u_output_controller_m1.base >> (8 * 2)) & 0xFF;
+      *(outbuffer + offset + 3) = (u_output_controller_m1.base >> (8 * 3)) & 0xFF;
+      offset += sizeof(this->output_controller_m1);
       union {
         float real;
         uint32_t base;
-      } u_input_setpoint;
-      u_input_setpoint.real = this->input_setpoint;
-      *(outbuffer + offset + 0) = (u_input_setpoint.base >> (8 * 0)) & 0xFF;
-      *(outbuffer + offset + 1) = (u_input_setpoint.base >> (8 * 1)) & 0xFF;
-      *(outbuffer + offset + 2) = (u_input_setpoint.base >> (8 * 2)) & 0xFF;
-      *(outbuffer + offset + 3) = (u_input_setpoint.base >> (8 * 3)) & 0xFF;
-      offset += sizeof(this->input_setpoint);
+      } u_input_setpoint_m1;
+      u_input_setpoint_m1.real = this->input_setpoint_m1;
+      *(outbuffer + offset + 0) = (u_input_setpoint_m1.base >> (8 * 0)) & 0xFF;
+      *(outbuffer + offset + 1) = (u_input_setpoint_m1.base >> (8 * 1)) & 0xFF;
+      *(outbuffer + offset + 2) = (u_input_setpoint_m1.base >> (8 * 2)) & 0xFF;
+      *(outbuffer + offset + 3) = (u_input_setpoint_m1.base >> (8 * 3)) & 0xFF;
+      offset += sizeof(this->input_setpoint_m1);
       union {
         float real;
         uint32_t base;
-      } u_input_Kp;
-      u_input_Kp.real = this->input_Kp;
-      *(outbuffer + offset + 0) = (u_input_Kp.base >> (8 * 0)) & 0xFF;
-      *(outbuffer + offset + 1) = (u_input_Kp.base >> (8 * 1)) & 0xFF;
-      *(outbuffer + offset + 2) = (u_input_Kp.base >> (8 * 2)) & 0xFF;
-      *(outbuffer + offset + 3) = (u_input_Kp.base >> (8 * 3)) & 0xFF;
-      offset += sizeof(this->input_Kp);
+      } u_input_Kp_m1;
+      u_input_Kp_m1.real = this->input_Kp_m1;
+      *(outbuffer + offset + 0) = (u_input_Kp_m1.base >> (8 * 0)) & 0xFF;
+      *(outbuffer + offset + 1) = (u_input_Kp_m1.base >> (8 * 1)) & 0xFF;
+      *(outbuffer + offset + 2) = (u_input_Kp_m1.base >> (8 * 2)) & 0xFF;
+      *(outbuffer + offset + 3) = (u_input_Kp_m1.base >> (8 * 3)) & 0xFF;
+      offset += sizeof(this->input_Kp_m1);
       union {
         float real;
         uint32_t base;
-      } u_input_Ki;
-      u_input_Ki.real = this->input_Ki;
-      *(outbuffer + offset + 0) = (u_input_Ki.base >> (8 * 0)) & 0xFF;
-      *(outbuffer + offset + 1) = (u_input_Ki.base >> (8 * 1)) & 0xFF;
-      *(outbuffer + offset + 2) = (u_input_Ki.base >> (8 * 2)) & 0xFF;
-      *(outbuffer + offset + 3) = (u_input_Ki.base >> (8 * 3)) & 0xFF;
-      offset += sizeof(this->input_Ki);
+      } u_input_Ki_m1;
+      u_input_Ki_m1.real = this->input_Ki_m1;
+      *(outbuffer + offset + 0) = (u_input_Ki_m1.base >> (8 * 0)) & 0xFF;
+      *(outbuffer + offset + 1) = (u_input_Ki_m1.base >> (8 * 1)) & 0xFF;
+      *(outbuffer + offset + 2) = (u_input_Ki_m1.base >> (8 * 2)) & 0xFF;
+      *(outbuffer + offset + 3) = (u_input_Ki_m1.base >> (8 * 3)) & 0xFF;
+      offset += sizeof(this->input_Ki_m1);
       union {
         float real;
         uint32_t base;
-      } u_input_Kd;
-      u_input_Kd.real = this->input_Kd;
-      *(outbuffer + offset + 0) = (u_input_Kd.base >> (8 * 0)) & 0xFF;
-      *(outbuffer + offset + 1) = (u_input_Kd.base >> (8 * 1)) & 0xFF;
-      *(outbuffer + offset + 2) = (u_input_Kd.base >> (8 * 2)) & 0xFF;
-      *(outbuffer + offset + 3) = (u_input_Kd.base >> (8 * 3)) & 0xFF;
-      offset += sizeof(this->input_Kd);
+      } u_input_Kd_m1;
+      u_input_Kd_m1.real = this->input_Kd_m1;
+      *(outbuffer + offset + 0) = (u_input_Kd_m1.base >> (8 * 0)) & 0xFF;
+      *(outbuffer + offset + 1) = (u_input_Kd_m1.base >> (8 * 1)) & 0xFF;
+      *(outbuffer + offset + 2) = (u_input_Kd_m1.base >> (8 * 2)) & 0xFF;
+      *(outbuffer + offset + 3) = (u_input_Kd_m1.base >> (8 * 3)) & 0xFF;
+      offset += sizeof(this->input_Kd_m1);
+      union {
+        float real;
+        uint32_t base;
+      } u_output_rpm_m2;
+      u_output_rpm_m2.real = this->output_rpm_m2;
+      *(outbuffer + offset + 0) = (u_output_rpm_m2.base >> (8 * 0)) & 0xFF;
+      *(outbuffer + offset + 1) = (u_output_rpm_m2.base >> (8 * 1)) & 0xFF;
+      *(outbuffer + offset + 2) = (u_output_rpm_m2.base >> (8 * 2)) & 0xFF;
+      *(outbuffer + offset + 3) = (u_output_rpm_m2.base >> (8 * 3)) & 0xFF;
+      offset += sizeof(this->output_rpm_m2);
+      union {
+        float real;
+        uint32_t base;
+      } u_output_controller_m2;
+      u_output_controller_m2.real = this->output_controller_m2;
+      *(outbuffer + offset + 0) = (u_output_controller_m2.base >> (8 * 0)) & 0xFF;
+      *(outbuffer + offset + 1) = (u_output_controller_m2.base >> (8 * 1)) & 0xFF;
+      *(outbuffer + offset + 2) = (u_output_controller_m2.base >> (8 * 2)) & 0xFF;
+      *(outbuffer + offset + 3) = (u_output_controller_m2.base >> (8 * 3)) & 0xFF;
+      offset += sizeof(this->output_controller_m2);
+      union {
+        float real;
+        uint32_t base;
+      } u_input_setpoint_m2;
+      u_input_setpoint_m2.real = this->input_setpoint_m2;
+      *(outbuffer + offset + 0) = (u_input_setpoint_m2.base >> (8 * 0)) & 0xFF;
+      *(outbuffer + offset + 1) = (u_input_setpoint_m2.base >> (8 * 1)) & 0xFF;
+      *(outbuffer + offset + 2) = (u_input_setpoint_m2.base >> (8 * 2)) & 0xFF;
+      *(outbuffer + offset + 3) = (u_input_setpoint_m2.base >> (8 * 3)) & 0xFF;
+      offset += sizeof(this->input_setpoint_m2);
+      union {
+        float real;
+        uint32_t base;
+      } u_input_Kp_m2;
+      u_input_Kp_m2.real = this->input_Kp_m2;
+      *(outbuffer + offset + 0) = (u_input_Kp_m2.base >> (8 * 0)) & 0xFF;
+      *(outbuffer + offset + 1) = (u_input_Kp_m2.base >> (8 * 1)) & 0xFF;
+      *(outbuffer + offset + 2) = (u_input_Kp_m2.base >> (8 * 2)) & 0xFF;
+      *(outbuffer + offset + 3) = (u_input_Kp_m2.base >> (8 * 3)) & 0xFF;
+      offset += sizeof(this->input_Kp_m2);
+      union {
+        float real;
+        uint32_t base;
+      } u_input_Ki_m2;
+      u_input_Ki_m2.real = this->input_Ki_m2;
+      *(outbuffer + offset + 0) = (u_input_Ki_m2.base >> (8 * 0)) & 0xFF;
+      *(outbuffer + offset + 1) = (u_input_Ki_m2.base >> (8 * 1)) & 0xFF;
+      *(outbuffer + offset + 2) = (u_input_Ki_m2.base >> (8 * 2)) & 0xFF;
+      *(outbuffer + offset + 3) = (u_input_Ki_m2.base >> (8 * 3)) & 0xFF;
+      offset += sizeof(this->input_Ki_m2);
+      union {
+        float real;
+        uint32_t base;
+      } u_input_Kd_m2;
+      u_input_Kd_m2.real = this->input_Kd_m2;
+      *(outbuffer + offset + 0) = (u_input_Kd_m2.base >> (8 * 0)) & 0xFF;
+      *(outbuffer + offset + 1) = (u_input_Kd_m2.base >> (8 * 1)) & 0xFF;
+      *(outbuffer + offset + 2) = (u_input_Kd_m2.base >> (8 * 2)) & 0xFF;
+      *(outbuffer + offset + 3) = (u_input_Kd_m2.base >> (8 * 3)) & 0xFF;
+      offset += sizeof(this->input_Kd_m2);
       return offset;
     }
 
@@ -107,74 +185,140 @@ namespace pid_plot
       union {
         float real;
         uint32_t base;
-      } u_output_rpm;
-      u_output_rpm.base = 0;
-      u_output_rpm.base |= ((uint32_t) (*(inbuffer + offset + 0))) << (8 * 0);
-      u_output_rpm.base |= ((uint32_t) (*(inbuffer + offset + 1))) << (8 * 1);
-      u_output_rpm.base |= ((uint32_t) (*(inbuffer + offset + 2))) << (8 * 2);
-      u_output_rpm.base |= ((uint32_t) (*(inbuffer + offset + 3))) << (8 * 3);
-      this->output_rpm = u_output_rpm.real;
-      offset += sizeof(this->output_rpm);
+      } u_output_rpm_m1;
+      u_output_rpm_m1.base = 0;
+      u_output_rpm_m1.base |= ((uint32_t) (*(inbuffer + offset + 0))) << (8 * 0);
+      u_output_rpm_m1.base |= ((uint32_t) (*(inbuffer + offset + 1))) << (8 * 1);
+      u_output_rpm_m1.base |= ((uint32_t) (*(inbuffer + offset + 2))) << (8 * 2);
+      u_output_rpm_m1.base |= ((uint32_t) (*(inbuffer + offset + 3))) << (8 * 3);
+      this->output_rpm_m1 = u_output_rpm_m1.real;
+      offset += sizeof(this->output_rpm_m1);
       union {
         float real;
         uint32_t base;
-      } u_output_controller;
-      u_output_controller.base = 0;
-      u_output_controller.base |= ((uint32_t) (*(inbuffer + offset + 0))) << (8 * 0);
-      u_output_controller.base |= ((uint32_t) (*(inbuffer + offset + 1))) << (8 * 1);
-      u_output_controller.base |= ((uint32_t) (*(inbuffer + offset + 2))) << (8 * 2);
-      u_output_controller.base |= ((uint32_t) (*(inbuffer + offset + 3))) << (8 * 3);
-      this->output_controller = u_output_controller.real;
-      offset += sizeof(this->output_controller);
+      } u_output_controller_m1;
+      u_output_controller_m1.base = 0;
+      u_output_controller_m1.base |= ((uint32_t) (*(inbuffer + offset + 0))) << (8 * 0);
+      u_output_controller_m1.base |= ((uint32_t) (*(inbuffer + offset + 1))) << (8 * 1);
+      u_output_controller_m1.base |= ((uint32_t) (*(inbuffer + offset + 2))) << (8 * 2);
+      u_output_controller_m1.base |= ((uint32_t) (*(inbuffer + offset + 3))) << (8 * 3);
+      this->output_controller_m1 = u_output_controller_m1.real;
+      offset += sizeof(this->output_controller_m1);
       union {
         float real;
         uint32_t base;
-      } u_input_setpoint;
-      u_input_setpoint.base = 0;
-      u_input_setpoint.base |= ((uint32_t) (*(inbuffer + offset + 0))) << (8 * 0);
-      u_input_setpoint.base |= ((uint32_t) (*(inbuffer + offset + 1))) << (8 * 1);
-      u_input_setpoint.base |= ((uint32_t) (*(inbuffer + offset + 2))) << (8 * 2);
-      u_input_setpoint.base |= ((uint32_t) (*(inbuffer + offset + 3))) << (8 * 3);
-      this->input_setpoint = u_input_setpoint.real;
-      offset += sizeof(this->input_setpoint);
+      } u_input_setpoint_m1;
+      u_input_setpoint_m1.base = 0;
+      u_input_setpoint_m1.base |= ((uint32_t) (*(inbuffer + offset + 0))) << (8 * 0);
+      u_input_setpoint_m1.base |= ((uint32_t) (*(inbuffer + offset + 1))) << (8 * 1);
+      u_input_setpoint_m1.base |= ((uint32_t) (*(inbuffer + offset + 2))) << (8 * 2);
+      u_input_setpoint_m1.base |= ((uint32_t) (*(inbuffer + offset + 3))) << (8 * 3);
+      this->input_setpoint_m1 = u_input_setpoint_m1.real;
+      offset += sizeof(this->input_setpoint_m1);
       union {
         float real;
         uint32_t base;
-      } u_input_Kp;
-      u_input_Kp.base = 0;
-      u_input_Kp.base |= ((uint32_t) (*(inbuffer + offset + 0))) << (8 * 0);
-      u_input_Kp.base |= ((uint32_t) (*(inbuffer + offset + 1))) << (8 * 1);
-      u_input_Kp.base |= ((uint32_t) (*(inbuffer + offset + 2))) << (8 * 2);
-      u_input_Kp.base |= ((uint32_t) (*(inbuffer + offset + 3))) << (8 * 3);
-      this->input_Kp = u_input_Kp.real;
-      offset += sizeof(this->input_Kp);
+      } u_input_Kp_m1;
+      u_input_Kp_m1.base = 0;
+      u_input_Kp_m1.base |= ((uint32_t) (*(inbuffer + offset + 0))) << (8 * 0);
+      u_input_Kp_m1.base |= ((uint32_t) (*(inbuffer + offset + 1))) << (8 * 1);
+      u_input_Kp_m1.base |= ((uint32_t) (*(inbuffer + offset + 2))) << (8 * 2);
+      u_input_Kp_m1.base |= ((uint32_t) (*(inbuffer + offset + 3))) << (8 * 3);
+      this->input_Kp_m1 = u_input_Kp_m1.real;
+      offset += sizeof(this->input_Kp_m1);
       union {
         float real;
         uint32_t base;
-      } u_input_Ki;
-      u_input_Ki.base = 0;
-      u_input_Ki.base |= ((uint32_t) (*(inbuffer + offset + 0))) << (8 * 0);
-      u_input_Ki.base |= ((uint32_t) (*(inbuffer + offset + 1))) << (8 * 1);
-      u_input_Ki.base |= ((uint32_t) (*(inbuffer + offset + 2))) << (8 * 2);
-      u_input_Ki.base |= ((uint32_t) (*(inbuffer + offset + 3))) << (8 * 3);
-      this->input_Ki = u_input_Ki.real;
-      offset += sizeof(this->input_Ki);
+      } u_input_Ki_m1;
+      u_input_Ki_m1.base = 0;
+      u_input_Ki_m1.base |= ((uint32_t) (*(inbuffer + offset + 0))) << (8 * 0);
+      u_input_Ki_m1.base |= ((uint32_t) (*(inbuffer + offset + 1))) << (8 * 1);
+      u_input_Ki_m1.base |= ((uint32_t) (*(inbuffer + offset + 2))) << (8 * 2);
+      u_input_Ki_m1.base |= ((uint32_t) (*(inbuffer + offset + 3))) << (8 * 3);
+      this->input_Ki_m1 = u_input_Ki_m1.real;
+      offset += sizeof(this->input_Ki_m1);
       union {
         float real;
         uint32_t base;
-      } u_input_Kd;
-      u_input_Kd.base = 0;
-      u_input_Kd.base |= ((uint32_t) (*(inbuffer + offset + 0))) << (8 * 0);
-      u_input_Kd.base |= ((uint32_t) (*(inbuffer + offset + 1))) << (8 * 1);
-      u_input_Kd.base |= ((uint32_t) (*(inbuffer + offset + 2))) << (8 * 2);
-      u_input_Kd.base |= ((uint32_t) (*(inbuffer + offset + 3))) << (8 * 3);
-      this->input_Kd = u_input_Kd.real;
-      offset += sizeof(this->input_Kd);
+      } u_input_Kd_m1;
+      u_input_Kd_m1.base = 0;
+      u_input_Kd_m1.base |= ((uint32_t) (*(inbuffer + offset + 0))) << (8 * 0);
+      u_input_Kd_m1.base |= ((uint32_t) (*(inbuffer + offset + 1))) << (8 * 1);
+      u_input_Kd_m1.base |= ((uint32_t) (*(inbuffer + offset + 2))) << (8 * 2);
+      u_input_Kd_m1.base |= ((uint32_t) (*(inbuffer + offset + 3))) << (8 * 3);
+      this->input_Kd_m1 = u_input_Kd_m1.real;
+      offset += sizeof(this->input_Kd_m1);
+      union {
+        float real;
+        uint32_t base;
+      } u_output_rpm_m2;
+      u_output_rpm_m2.base = 0;
+      u_output_rpm_m2.base |= ((uint32_t) (*(inbuffer + offset + 0))) << (8 * 0);
+      u_output_rpm_m2.base |= ((uint32_t) (*(inbuffer + offset + 1))) << (8 * 1);
+      u_output_rpm_m2.base |= ((uint32_t) (*(inbuffer + offset + 2))) << (8 * 2);
+      u_output_rpm_m2.base |= ((uint32_t) (*(inbuffer + offset + 3))) << (8 * 3);
+      this->output_rpm_m2 = u_output_rpm_m2.real;
+      offset += sizeof(this->output_rpm_m2);
+      union {
+        float real;
+        uint32_t base;
+      } u_output_controller_m2;
+      u_output_controller_m2.base = 0;
+      u_output_controller_m2.base |= ((uint32_t) (*(inbuffer + offset + 0))) << (8 * 0);
+      u_output_controller_m2.base |= ((uint32_t) (*(inbuffer + offset + 1))) << (8 * 1);
+      u_output_controller_m2.base |= ((uint32_t) (*(inbuffer + offset + 2))) << (8 * 2);
+      u_output_controller_m2.base |= ((uint32_t) (*(inbuffer + offset + 3))) << (8 * 3);
+      this->output_controller_m2 = u_output_controller_m2.real;
+      offset += sizeof(this->output_controller_m2);
+      union {
+        float real;
+        uint32_t base;
+      } u_input_setpoint_m2;
+      u_input_setpoint_m2.base = 0;
+      u_input_setpoint_m2.base |= ((uint32_t) (*(inbuffer + offset + 0))) << (8 * 0);
+      u_input_setpoint_m2.base |= ((uint32_t) (*(inbuffer + offset + 1))) << (8 * 1);
+      u_input_setpoint_m2.base |= ((uint32_t) (*(inbuffer + offset + 2))) << (8 * 2);
+      u_input_setpoint_m2.base |= ((uint32_t) (*(inbuffer + offset + 3))) << (8 * 3);
+      this->input_setpoint_m2 = u_input_setpoint_m2.real;
+      offset += sizeof(this->input_setpoint_m2);
+      union {
+        float real;
+        uint32_t base;
+      } u_input_Kp_m2;
+      u_input_Kp_m2.base = 0;
+      u_input_Kp_m2.base |= ((uint32_t) (*(inbuffer + offset + 0))) << (8 * 0);
+      u_input_Kp_m2.base |= ((uint32_t) (*(inbuffer + offset + 1))) << (8 * 1);
+      u_input_Kp_m2.base |= ((uint32_t) (*(inbuffer + offset + 2))) << (8 * 2);
+      u_input_Kp_m2.base |= ((uint32_t) (*(inbuffer + offset + 3))) << (8 * 3);
+      this->input_Kp_m2 = u_input_Kp_m2.real;
+      offset += sizeof(this->input_Kp_m2);
+      union {
+        float real;
+        uint32_t base;
+      } u_input_Ki_m2;
+      u_input_Ki_m2.base = 0;
+      u_input_Ki_m2.base |= ((uint32_t) (*(inbuffer + offset + 0))) << (8 * 0);
+      u_input_Ki_m2.base |= ((uint32_t) (*(inbuffer + offset + 1))) << (8 * 1);
+      u_input_Ki_m2.base |= ((uint32_t) (*(inbuffer + offset + 2))) << (8 * 2);
+      u_input_Ki_m2.base |= ((uint32_t) (*(inbuffer + offset + 3))) << (8 * 3);
+      this->input_Ki_m2 = u_input_Ki_m2.real;
+      offset += sizeof(this->input_Ki_m2);
+      union {
+        float real;
+        uint32_t base;
+      } u_input_Kd_m2;
+      u_input_Kd_m2.base = 0;
+      u_input_Kd_m2.base |= ((uint32_t) (*(inbuffer + offset + 0))) << (8 * 0);
+      u_input_Kd_m2.base |= ((uint32_t) (*(inbuffer + offset + 1))) << (8 * 1);
+      u_input_Kd_m2.base |= ((uint32_t) (*(inbuffer + offset + 2))) << (8 * 2);
+      u_input_Kd_m2.base |= ((uint32_t) (*(inbuffer + offset + 3))) << (8 * 3);
+      this->input_Kd_m2 = u_input_Kd_m2.real;
+      offset += sizeof(this->input_Kd_m2);
      return offset;
     }
 
     virtual const char * getType() override { return "pid_plot/Num"; };
-    virtual const char * getMD5() override { return "a77d9ba7ef8bbd0c39997f800616c92c"; };
+    virtual const char * getMD5() override { return "5253f53301a197ebd2a3c136dfdc866c"; };
 
   };
 
