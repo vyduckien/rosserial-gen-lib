@@ -12,10 +12,13 @@
  extern "C" {
 #endif
 
-extern float v;
-extern float u;
-extern float Setpoint_value;
-extern float Kp, Ki, Kd;
+ struct Wheel{
+ 	float u_prev,e,e_prev,e_prev_prev,P_control,I_control,D_control,v,u;
+};
+
+extern struct Wheel m1,m2;
+extern float Setpoint_value_m1,Setpoint_value_m2;
+extern float Kp_m1,Kp_m2,Ki_m1,Ki_m2,Kd_m1,Kd_m2;
 
 void setup(void);
 void loop(void);
